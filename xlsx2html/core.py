@@ -180,8 +180,8 @@ def worksheet_to_data(ws, locale=None, fs=None, default_cell_border="none"):
             },
             "cells": [c for rows in cell_range_list for c in rows],
         }
-
-        excluded_cells.remove(m_cell.coordinate)
+        if m_cell.coordinate in excluded_cells:
+            excluded_cells.remove(m_cell.coordinate)
 
     max_col_number = 0
 
